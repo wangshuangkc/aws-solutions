@@ -1,11 +1,11 @@
-# Copy ami-xxxxxxxxxxxacross Partitions
+# Copy AMI across Partitions
 
-Copy ami-xxxxxxxxxxxfrom/to Global to/from China or US-gov cloud
+Copy AMI from/to Global to/from China or US-gov cloud
 
-* Store ami-xxxxxxxxxxxto S3 bucket
+* Store AMI to S3 bucket
 * Download object from S3 bucket to local
 * Upload object to S3 bucket in another partition
-* Restore ami-xxxxxxxxxxxfrom S3 object
+* Restore AMI from S3 object
 
 Reference:
 
@@ -14,7 +14,7 @@ Reference:
 
 ## From source partition
 
-* Set up AWS credentials of the account with the ami-xxxxxxxxxxxfor calling APIs. The principal should have at least below permissions
+* Set up AWS credentials of the account with the AMI for calling APIs. The principal should have at least below permissions
 
 ```json
 {
@@ -62,7 +62,7 @@ Reference:
 }
 ```
 
-* Create task to store ami-xxxxxxxxxxxto S3 bucket
+* Create task to store AMI to S3 bucket
 
 ```
 aws ec2 create-store-image-task \
@@ -77,7 +77,7 @@ aws ec2 describe-store-image-tasks \
     --region us-east-1
 ```
 
-* Download ami-xxxxxxxxxxxobject to local
+* Download AMI object to local
 
 ```
 aws s3api list-objects-v2 \
@@ -133,7 +133,7 @@ aws s3api get-object \
 }
 ```
 
-* Upload ami-xxxxxxxxxxxbin object to S3
+* Upload AMI bin object to S3
 
 ```
 aws s3api put-object \
